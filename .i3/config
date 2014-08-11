@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id gnome-settings-daemon
 
 # enable keyring
-#exec --no-startup-id ssh-add
+exec --no-startup-id ssh-add
 
 #########################################################################
 #   2. Global System Settings -- A: System Commands
