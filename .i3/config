@@ -31,7 +31,16 @@
 #   1. Startup Script
 #########################################################################
 
-exec --no-startup-id ~/.i3/startup.sh
+exec ~/.i3/startup.sh
+
+# Enable network manager on startup
+exec --no-startup-id nm-applet
+
+# Enable various gnome setting applets in window bar.
+#exec --no-startup-id gnome-settings-daemon
+
+# enable keyring
+#exec --no-startup-id ssh-add
 
 #########################################################################
 #   2. Global System Settings -- A: System Commands
@@ -45,6 +54,8 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
+# lock your screen
+#bindsym $mod+Escape exec i3lock -i /media/storage/Pictures/wallpapers/double_riker.jpg
 
 #########################################################################
 #   2. Global System Settings -- B: Application Launchers
@@ -93,7 +104,7 @@ bindsym $mod+e layout default
 bindsym $mod+a focus parent
 
 # focus the child container
-bindcode $mod+d focus child
+#bindcode $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -173,13 +184,26 @@ floating_modifier $mod
 bindsym $mod+Up floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Down focus mode_toggle
+#bindsym $mod+Down focus mode_toggle
 
 
 #########################################################################
 #   6. Customized Layout -- A: Startup Windows
 #########################################################################
 
+workspace 1 output LVDS1
+workspace 2 output HDMI1
+
+exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal;'
+exec --no-startup-id i3-msg 'workspace 2; exec gpe-todo;'
+exec --no-startup-id i3-msg 'workspace 2; exec chromium-browser;'
+exec --no-startup-id i3-msg 'workspace 2; focus right;'
+
+# exec [class="Cromium-browser" instance="chromium-browser"] resize grow right 200px;'
+
+# i3-msg '[class="Cromium-browser" instance="chromium-browser"] resize grow left 200px'; 
+
+#bindsym $mod+d workspace 2 for_window [class="Chromium-browser"] resize grow left 200, resize grow right 200, resize grow down 150, resize grow up 100
 
 #########################################################################
 #   6. Customized Layout -- B: Info Bar
@@ -189,16 +213,25 @@ bindsym $mod+Down focus mode_toggle
 # finds out, if available)
 bar {
         status_command i3status
+        #font pango:DejaVu Sans Mono 10
+        #font pango:'URW Gothic L' 14px
+        colors {
+            background #FD5A1E
+            statusline #000000
+            focused_workspace #FD5A1E #000000 
+            inactive_workspace #000000 #FD5A1E #000000
+            active_workspace #000000 #FD5A1E #000000
+
+        }
+        tray_output HDMI1
 }
 
-# Enable network manager on startup
-exec --no-startup-id nm-applet
 
 #########################################################################
 #   6. Customized Layout -- C: Styles
 #########################################################################
-
+client.focused #FD5A1E #FD5A1E #000000 
+client.focused_inactive #000000 #000000 #FD5A1E
+client.unfocused #FD5A1E #000000 #FD5A1E
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-
-hide_edge_borders both
