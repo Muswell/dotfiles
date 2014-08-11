@@ -65,7 +65,7 @@ bindsym $mod+Shift+E exit
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec dmenu_run
+bindsym $mod+space exec dmenu_run -nb black -nf orange -sb orange -sf black -i
 
 #########################################################################
 #   2. Global System Settings -- C: Movement and Layout
