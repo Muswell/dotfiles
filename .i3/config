@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id gnome-settings-daemon
 
 # enable keyring
-exec --no-startup-id ssh-add
+#exec --no-startup-id ssh-add
 
 #########################################################################
 #   2. Global System Settings -- A: System Commands
@@ -197,13 +197,6 @@ workspace 2 output HDMI1
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal;'
 exec --no-startup-id i3-msg 'workspace 2; exec gpe-todo;'
 exec --no-startup-id i3-msg 'workspace 2; exec chromium-browser;'
-exec --no-startup-id i3-msg 'workspace 2; focus right;'
-
-# exec [class="Cromium-browser" instance="chromium-browser"] resize grow right 200px;'
-
-# i3-msg '[class="Cromium-browser" instance="chromium-browser"] resize grow left 200px'; 
-
-#bindsym $mod+d workspace 2 for_window [class="Chromium-browser"] resize grow left 200, resize grow right 200, resize grow down 150, resize grow up 100
 
 #########################################################################
 #   6. Customized Layout -- B: Info Bar
@@ -213,17 +206,16 @@ exec --no-startup-id i3-msg 'workspace 2; focus right;'
 # finds out, if available)
 bar {
         status_command i3status
-        #font pango:DejaVu Sans Mono 10
-        #font pango:'URW Gothic L' 14px
+        font pango:Droid Serif 10
         colors {
             background #FD5A1E
             statusline #000000
-            focused_workspace #FD5A1E #000000 
-            inactive_workspace #000000 #FD5A1E #000000
-            active_workspace #000000 #FD5A1E #000000
-
+            separator #000000
+            focused_workspace #FFFFFF #FFFFFF #FD5A1E
+            inactive_workspace #FFFFFF #000000 #FD5A1E 
+            active_workspace #FFFFFF #000000 #FD5A1E 
         }
-        tray_output HDMI1
+        tray_output LVDS1
 }
 
 
@@ -233,5 +225,13 @@ bar {
 client.focused #FD5A1E #FD5A1E #000000 
 client.focused_inactive #000000 #000000 #FD5A1E
 client.unfocused #FD5A1E #000000 #FD5A1E
-# font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:Tibetan Machine Uni 10
+#font pango:UnBatang 12
+#font pango:Bitstream Charter 10
+#font pango:Century Schoolbook L Medium 10
+#font pango:Droid Serif 10
+#font pango:Kai 12
+#font pango:Kinnari Medium 12
+#font pango:Likhan Medium 12
+#font pango:Nakula 10
+#font pango:NanumMyeongjo 10
