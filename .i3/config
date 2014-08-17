@@ -65,7 +65,7 @@ bindsym $mod+Shift+E exit
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec dmenu_run -nb black -nf orange -sb orange -sf black -i
+bindsym $mod+space exec dmenu_run -nb black -nf orange -sb orange -sf black -i -fn "-*-courier 10 pitch-*-*-*-*-16-*-*-*-*-*-*-*"
 
 #########################################################################
 #   2. Global System Settings -- C: Movement and Layout
@@ -195,9 +195,10 @@ workspace 1 output LVDS1
 workspace 2 output HDMI1
 
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal;'
-exec --no-startup-id i3-msg 'workspace 2; exec gpe-todo;'
 exec --no-startup-id i3-msg 'workspace 2; exec chromium-browser;'
 
+workspace_layout tabbed
+new_window pixel 2
 #########################################################################
 #   6. Customized Layout -- B: Info Bar
 #########################################################################
@@ -225,13 +226,5 @@ bar {
 client.focused #FD5A1E #FD5A1E #000000 
 client.focused_inactive #000000 #000000 #FD5A1E
 client.unfocused #FD5A1E #000000 #FD5A1E
+hide_edge_borders none
 font pango:Tibetan Machine Uni 10
-#font pango:UnBatang 12
-#font pango:Bitstream Charter 10
-#font pango:Century Schoolbook L Medium 10
-#font pango:Droid Serif 10
-#font pango:Kai 12
-#font pango:Kinnari Medium 12
-#font pango:Likhan Medium 12
-#font pango:Nakula 10
-#font pango:NanumMyeongjo 10
