@@ -55,7 +55,7 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 # lock your screen
-#bindsym $mod+Escape exec i3lock -i /media/storage/Pictures/wallpapers/double_riker.jpg
+bindsym $mod+Escape exec i3lock -i /media/storage/Pictures/wallpapers/bochy.png
 
 #########################################################################
 #   2. Global System Settings -- B: Application Launchers
@@ -143,17 +143,17 @@ mode "resize" {
         # when pressing left, the window is resized so that it has
         # more space on its left
 
-bindsym h resize shrink left 10 px or 10 ppt
-bindsym Shift+H resize grow   left 10 px or 10 ppt
+bindsym Shift+H shrink left 10 px or 10 ppt
+bindsym h resize grow   left 10 px or 10 ppt
 
-bindsym j resize shrink down 10 px or 10 ppt
-bindsym Shift+J resize grow   down 10 px or 10 ppt
+bindsym Shift+J shrink down 10 px or 10 ppt
+bindsym j resize grow   down 10 px or 10 ppt
 
-bindsym k resize shrink up 10 px or 10 ppt
-bindsym Shift+K resize grow   up 10 px or 10 ppt
+bindsym Shift+K shrink up 10 px or 10 ppt
+bindsym k resize grow   up 10 px or 10 ppt
 
-bindsym l resize shrink right 10 px or 10 ppt
-bindsym Shift+L resize grow   right 10 px or 10 ppt
+bindsym Shift+L shrink right 10 px or 10 ppt
+bindsym l resize grow   right 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
 #bindsym Left resize shrink left 10 px or 10 ppt
@@ -194,6 +194,7 @@ bindsym $mod+Up floating toggle
 workspace 1 output LVDS1
 workspace 2 output HDMI1
 
+exec --no-startup-id feh --bg-max /media/storage/Pictures/wallpapers/pence.jpg /media/storage/Pictures/wallpapers/att_park.jpg
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal;'
 exec --no-startup-id i3-msg 'workspace 2; exec chromium-browser;'
 
