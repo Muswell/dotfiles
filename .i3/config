@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id gnome-settings-daemon
 
 # enable keyring
-#exec --no-startup-id ssh-add
+exec --no-startup-id ssh-add
 
 #########################################################################
 #   2. Global System Settings -- A: System Commands
@@ -55,7 +55,7 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 # lock your screen
-bindsym $mod+Escape exec i3lock -i /media/storage/Pictures/wallpapers/bochy.png
+bindsym $mod+Escape exec i3lock -i /media/storage/Pictures/wallpapers/lockscreen.png
 
 #########################################################################
 #   2. Global System Settings -- B: Application Launchers
