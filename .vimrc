@@ -17,12 +17,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " }}}
 
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-if has("autocmd")
-  filetype plugin indent on
-endif
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -180,10 +174,10 @@ set pastetoggle=<F11>
 
 " Session management {{{
     " Save current session
-    map <F1> :call SaveCurrentSession()<CR>
+    map <F2> :call SaveCurrentSession()<CR>
     " Attempt to load current session
     " autocmd vimenter * if !argc() && v:this_session == "" | exec "source ~/.vimsession" | endif
-    map <F2> :source ~/.vimsession<CR>
+    map <F3> :source ~/.vimsession<CR>
 "}}}
 
 " Switch CWD to the directory of the open buffer
@@ -200,6 +194,12 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 " }}}
+
+" Strip trailing whitespace with <leader>$ {{{
+nnoremap <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+
+"clear search highlighting
+nnoremap <leader>z :nohl<CR>
 
 " 3. Plugins
 "------------------------------------------------------------
@@ -242,14 +242,29 @@ Bundle 'bcaccinolo/bclose'
 "close buffer 
 map <leader>d :Bclose!<cr> 
 
+" Indexed Search!
+ Bundle 'vim-scripts/IndexedSearch'
+
 " autocomplete! see readme for details for installation. It's pretty awesome.
 Bundle 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
 
-" Strip trailing whitespace with <leader>$ {{{
-nnoremap <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+if has("autocmd")
+  filetype plugin indent on
+endif
 
-"clear search highlighting
-nnoremap <leader>z :nohl<CR>
+" Color schemes {{{
+    " Attempt at 256 colors
+    set t_Co=256
+    " attempt at clearing background for different color backgrounds!
+    set t_ut=
+    Bundle 'jnurmine/Zenburn'
+    colorscheme zenburn
+    set background=dark
+"}}}
 
 " 4. Functions
 "------------------------------------------------------------
@@ -283,4 +298,4 @@ endfunction
 
 " 5. Display
 "------------------------------------------------------------
-colorscheme desert
+"colorscheme desert
