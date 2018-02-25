@@ -1,0 +1,12 @@
+alias ls='ls -F --color=auto' 
+alias ll='ls -alrth --color=auto'
+alias grep='grep --color=auto' 
+alias vi='vim'
+alias sudo='command sudo '
+alias ecl='/home/sscanlon/Applications/eclipse/eclipse &'
+alias libreoffice="libreoffice --norestore &"
+alias es='/home/sscanlon/services/elasticsearch-2.1.2/bin/elasticsearch'
+alias pdf=xdg-open
+
+# store aliases elsewhere
+[ -f ~/.zsh_git_aliases ] && source ~/.zsh_git_aliases
